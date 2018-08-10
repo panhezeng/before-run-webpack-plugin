@@ -6,18 +6,24 @@
 我写来是为了输出示例的，默认有个方法
 
 ```javascript
-   let cb = function () {
+    let cb = function () {
       let outputPath = 'docs'
       let srcPath = 'index.html'
       shell.rm('-rf', outputPath)
       shell.mkdir(outputPath)
       shell.cp('-R', srcPath, outputPath)
-      shell.sed('-i', '/vue.js', '/vue.min.js', srcPath)
+      if (!(optionsIsObj && this.options.noSed)) {
+        if (optionsIsObj && this.options.sed === 'react') {
+          shell.sed('-i', /(react-dom|react)\.development\.min\.js/, '$1.production.js', outputPath + '/' + srcPath)
+        } else {
+          shell.sed('-i', '/vue.js', '/vue.min.js', outputPath + '/' + srcPath)
+        }
+      }
     }
 ```
 
 参数
-{cb}
+{cb, noSed, sed }
 
 
 ## 用法
