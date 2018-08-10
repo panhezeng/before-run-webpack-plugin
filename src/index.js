@@ -17,7 +17,7 @@ export class BeforeRunWebpackPlugin {
       shell.rm('-rf', outputPath)
       shell.mkdir(outputPath)
       shell.cp('-R', srcPath, outputPath)
-      shell.sed('-i', '/vue.js', '/vue.min.js', srcPath)
+      shell.sed('-i', '/vue.js', '/vue.min.js', outputPath + '/' + srcPath)
     }
 
     if (Object.prototype.toString.call(this.options) === '[object Object]') {
