@@ -25,7 +25,7 @@
 `npm i @panhezeng/before-run-webpack-plugin -D`
 
 ```javascript
-const BeforeRunWebpackPlugin = require('before-run-webpack-plugin')
+const BeforeRunWebpackPlugin = require('@panhezeng/before-run-webpack-plugin')
 
 module.exports = {
   plugins: [
