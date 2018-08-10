@@ -13,7 +13,7 @@ export class BeforeRunWebpackPlugin {
 
     const optionsIsObj = (Object.prototype.toString.call(this.options) === '[object Object]')
 
-    let cb = function () {
+    let cb = () => {
       let outputPath = 'docs'
       let srcPath = 'index.html'
       shell.rm('-rf', outputPath)
@@ -21,7 +21,7 @@ export class BeforeRunWebpackPlugin {
       shell.cp('-R', srcPath, outputPath)
       if (!(optionsIsObj && this.options.noSed)) {
         if (optionsIsObj && this.options.sed === 'react') {
-          shell.sed('-i', /(react-dom|react)\.development\.min\.js/, '$1.production.js', outputPath + '/' + srcPath)
+          shell.sed('-i', /(react-dom|react)\.development\.js/, '$1.production.min.js', outputPath + '/' + srcPath)
         } else {
           shell.sed('-i', '/vue.js', '/vue.min.js', outputPath + '/' + srcPath)
         }
