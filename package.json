@@ -1,7 +1,7 @@
 {
   "name": "@panhezeng/before-run-webpack-plugin",
   "description": "before-run-webpack-plugin",
-  "version": "1.0.1",
+  "version": "1.0.2",
   "author": "潘何增 <panhezeng@gmail.com> (http://apsay.com/)",
   "license": "MIT",
   "private": false,
