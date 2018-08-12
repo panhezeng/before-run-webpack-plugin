@@ -2,7 +2,7 @@ const shell = require('shelljs')
 
 export class BeforeRunWebpackPlugin {
   /**
-   * options {cb, noSed, sed }
+   * options {cb, sed }
    * @param options
    */
   constructor (options) {
@@ -19,11 +19,14 @@ export class BeforeRunWebpackPlugin {
       shell.rm('-rf', outputPath)
       shell.mkdir(outputPath)
       shell.cp('-R', srcPath, outputPath)
-      if (!(optionsIsObj && this.options.noSed)) {
-        if (optionsIsObj && this.options.sed === 'react') {
-          shell.sed('-i', /(react-dom|react)\.development\.js/, '$1.production.min.js', outputPath + '/' + srcPath)
-        } else {
-          shell.sed('-i', '/vue.js', '/vue.min.js', outputPath + '/' + srcPath)
+      if (optionsIsObj && this.options.sed) {
+        switch (this.options.sed) {
+          case 'react':
+            shell.sed('-i', /(react-dom|react)\.development\.js/, '$1.production.min.js', outputPath + '/' + srcPath)
+            break
+          case 'vue':
+            shell.sed('-i', 'vue.js', 'vue.min.js', outputPath + '/' + srcPath)
+            break
         }
       }
     }
