@@ -22,7 +22,7 @@ export class BeforeRunWebpackPlugin {
       if (optionsIsObj && this.options.sed) {
         switch (this.options.sed) {
           case 'react':
-            shell.sed('-i', /(react-dom|react)\.development\.js/, '$1.production.min.js', outputPath + '/' + srcPath)
+            shell.sed('-i', /(react-dom|react)\.development\.js/g, '$1.production.min.js', outputPath + '/' + srcPath)
             break
           case 'vue':
             shell.sed('-i', 'vue.js', 'vue.min.js', outputPath + '/' + srcPath)
