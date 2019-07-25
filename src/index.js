@@ -38,7 +38,9 @@ export class BeforeRunWebpackPlugin {
 
     if (optionsIsObj) {
       if (
-        Object.prototype.toString.call(this.options.cb) === "[object Function]"
+        /^\[object [^F]*Function\]$/.test(
+          Object.prototype.toString.call(this.options.cb)
+        )
       ) {
         cb = this.options.cb;
       }
