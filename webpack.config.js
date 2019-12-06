@@ -1,23 +1,21 @@
 module.exports = {
   output: {
-    filename: 'before-run-webpack-plugin.min.js',
-    libraryTarget: 'commonjs2',
-    library: 'BeforeRunWebpackPlugin',
-    libraryExport: 'BeforeRunWebpackPlugin'
+    filename: "before-run-webpack-plugin.min.js",
+    libraryTarget: "commonjs2",
+    library: "BeforeRunWebpackPlugin",
+    libraryExport: "BeforeRunWebpackPlugin"
   },
-  externals: [
-    'shelljs'
-  ],
+  externals: ["shelljs"],
   module: {
     rules: [
       {
         test: /\.js$/,
         exclude: /node_modules/,
-        use: 'babel-loader'
+        use: "babel-loader"
       }
     ]
   },
   resolve: {
-    extensions: ['.js']
+    extensions: [".js"]
   }
-}
+};

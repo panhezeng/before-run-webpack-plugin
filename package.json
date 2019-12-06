@@ -1,20 +1,24 @@
 {
   "name": "@panhezeng/before-run-webpack-plugin",
+  "version": "1.1.0",
   "description": "before-run-webpack-plugin",
-  "version": "1.0.10",
-  "author": "潘何增 <panhezeng@gmail.com> (http://apsay.com/)",
-  "license": "MIT",
-  "private": false,
   "keywords": [
     "before compiler run",
     "webpack plugin",
     "javascript"
   ],
   "homepage": "https://github.com/panhezeng/before-run-webpack-plugin#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/panhezeng/before-run-webpack-plugin.git"
+  "bugs": {
+    "url": "https://github.com/panhezeng/before-run-webpack-plugin/issues",
+    "email": "panhezeng@gmail.com"
   },
+  "license": "Apache-2.0",
+  "author": {
+    "name": "潘何增",
+    "email": "panhezeng@gmail.com",
+    "url": "http://apsay.com/"
+  },
+  "contributors": [],
   "files": [
     "dist",
     "src",
@@ -22,36 +26,55 @@
     "README"
   ],
   "main": "dist/before-run-webpack-plugin.min.js",
-  "scripts": {
-    "build": "webpack --mode production"
+  "browser": "",
+  "bin": {},
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/panhezeng/before-run-webpack-plugin.git"
   },
+  "scripts": {
+    "build": "webpack --mode production",
+    "install:example": "cd example && npm install",
+    "dev:example": "cd example && npm run dev",
+    "build:example": "cd example && npm run build"
+  },
+  "config": {},
   "dependencies": {
     "shelljs": "latest"
   },
   "devDependencies": {
-    "@babel/cli": "^7.5.5",
-    "@babel/core": "^7.5.5",
-    "@babel/preset-env": "^7.5.5",
+    "@babel/cli": "^7.7.4",
+    "@babel/core": "^7.7.4",
+    "@babel/preset-env": "^7.7.4",
+    "babel-eslint": "^10.0.3",
     "babel-loader": "^8.0.6",
-    "husky": "^3.0.1",
-    "lint-staged": "^9.2.0",
-    "prettier": "^1.18.2",
-    "webpack": "^4.37.0",
-    "webpack-cli": "^3.3.6"
+    "eslint": "^6.7.2",
+    "eslint-config-prettier": "^6.7.0",
+    "eslint-plugin-prettier": "^3.1.1",
+    "husky": "^3.1.0",
+    "lint-staged": "^9.5.0",
+    "prettier": "^1.19.1",
+    "webpack": "^4.41.2",
+    "webpack-cli": "^3.3.10"
   },
+  "peerdependencies": {},
+  "engines": {
+    "node": "latest",
+    "npm": "latest"
+  },
+  "private": false,
   "husky": {
     "hooks": {
       "pre-commit": "lint-staged"
     }
   },
   "lint-staged": {
-    "*.{js,json,css,md,jsx,vue,ts,less,html}": [
+    "*.{js,ts,jsx,vue,md,json,html,css,less}": [
       "prettier --write",
       "git add"
     ]
   },
-  "engines": {
-    "node": ">= 10.0.0",
-    "npm": ">= 6.0.0"
-  }
+  "browserslist": [
+    "maintained node versions"
+  ]
 }

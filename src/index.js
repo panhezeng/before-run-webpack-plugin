@@ -2,7 +2,7 @@ const shell = require("shelljs");
 
 export class BeforeRunWebpackPlugin {
   /**
-   * options {cb, sed }
+   * options {cb, sed, outputPath, srcPath }
    * @param options
    */
   constructor(options) {
@@ -14,8 +14,8 @@ export class BeforeRunWebpackPlugin {
       Object.prototype.toString.call(this.options) === "[object Object]";
 
     let cb = () => {
-      let outputPath = "docs";
-      let srcPath = "index.html";
+      let outputPath = this.options.outputPath || "docs";
+      let srcPath = this.options.srcPath || "index.html";
       shell.rm("-rf", outputPath);
       shell.mkdir(outputPath);
       shell.cp("-R", srcPath, outputPath);
