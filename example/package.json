@@ -1,5 +1,5 @@
 {
-  "name": "@panhezeng/countdown-example",
+  "name": "@panhezeng/before-run-webpack-plugin-example",
   "version": "0.0.0",
   "description": "",
   "keywords": [],
@@ -51,7 +51,11 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,jsx,vue,md,json,html,css,less}": [
+    "*.{js,ts,jsx,vue}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{md,json,html,css,less}": [
       "prettier --write",
       "git add"
     ]

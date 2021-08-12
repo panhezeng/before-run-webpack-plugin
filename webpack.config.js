@@ -5,7 +5,6 @@ module.exports = {
     library: "BeforeRunWebpackPlugin",
     libraryExport: "BeforeRunWebpackPlugin"
   },
-  externals: ["shelljs"],
   module: {
     rules: [
       {
@@ -17,5 +16,6 @@ module.exports = {
   },
   resolve: {
     extensions: [".js"]
-  }
+  },
+  externals: ["shelljs"]
 };

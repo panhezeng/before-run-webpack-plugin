@@ -4,12 +4,7 @@ import ReactDOM from "react-dom";
 class App extends React.Component {
   constructor(props) {
     super(props);
-    this.state = { cd: "" };
   }
-
-  initCountdown() {}
-
-  destroyCountdown() {}
 
   componentDidMount() {}
 

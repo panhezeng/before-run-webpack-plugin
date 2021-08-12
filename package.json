@@ -40,7 +40,7 @@
   },
   "config": {},
   "dependencies": {
-    "shelljs": "latest"
+    "shelljs": "^0.8.4"
   },
   "devDependencies": {
     "@babel/cli": "^7.7.4",
@@ -59,8 +59,9 @@
   },
   "peerdependencies": {},
   "engines": {
-    "node": "latest",
-    "npm": "latest"
+    "node": ">= 12",
+    "npm": ">= 6",
+    "yarn": ">= 1"
   },
   "private": false,
   "husky": {
@@ -69,7 +70,11 @@
     }
   },
   "lint-staged": {
-    "*.{js,ts,jsx,vue,md,json,html,css,less}": [
+    "*.{js,ts,jsx,vue}": [
+      "eslint --fix",
+      "git add"
+    ],
+    "*.{md,json,html,css,less}": [
       "prettier --write",
       "git add"
     ]

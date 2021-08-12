@@ -8,11 +8,7 @@ module.exports = {
   rules: {
     "prettier/prettier": "error"
   },
-  parserOptions: {
-    parser: "babel-eslint"
-  },
-  globals: {
-    _: false,
-    ActiveXObject: false
-  }
+  parser: "babel-eslint",
+  parserOptions: {},
+  globals: {}
 };
